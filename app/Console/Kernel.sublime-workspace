@@ -1,0 +1,233 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"rOLE",
+				"roles"
+			],
+			[
+				"arra",
+				"array"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/var/www/html/demoproject/resources/views/login.blade.php",
+		"/home/neosoft/Documents/Admin/AdminLTE-2.4.15/index.html",
+		"/var/www/html/demoproject/resources/views/header.blade.php",
+		"/var/www/html/demoproject/resources/views/footer.blade.php",
+		"/var/www/html/demoproject/database/migrations/2019_08_02_052804_create_users_detail_table.php",
+		"/var/www/html/demoproject/resources/views/sidebar.blade.php",
+		"/var/www/html/demoproject/database/migrations/2019_08_02_051956_create_users_table.php",
+		"/var/www/html/demoproject/database/migrations/2019_08_02_050714_users_table.php",
+		"/var/www/html/demoproject/routes/web.php",
+		"/var/www/html/demoproject/public/dist/css/skins/_all-skins.min.css",
+		"/var/www/html/demoproject/public/plugins/iCheck/all.css",
+		"/var/www/html/demolaravel/resources/views/show_product.blade.php",
+		"/var/www/html/demoproject/resources/views/welcome.blade.php",
+		"/var/www/html/demolaravel/routes/web.php",
+		"/var/www/html/demolaravel/resources/views/home.blade.php",
+		"/var/www/html/demolaravel/resources/views/layouts/app.blade.php",
+		"/var/www/html/demolaravel/app/addproduct.php",
+		"/var/www/html/demolaravel/app/Http/Controllers/ProductController.php",
+		"/var/www/html/demolaravel/app/Console/Commands/add_product.php",
+		"/var/www/html/demolaravel/database/migrations/2019_08_01_061449_add_deleted_at_to_product_details.php",
+		"/var/www/html/demolaravel/resources/views/edit_product1.blade.php",
+		"/var/www/html/demolaravel/database/migrations/2019_07_29_054305_create_product_details_table.php",
+		"/var/www/html/demolaravel/public/css/parsley.css",
+		"/var/www/html/demolaravel/resources/views/add_product.blade.php",
+		"/var/www/html/demolaravel/public/css/stylesheet.css",
+		"/var/www/html/demolaravel/resources/views/header.blade.php",
+		"/var/www/html/demolaravel/app/Providers/AppServiceProvider.php",
+		"/var/www/html/demolaravel/app/Console/Kernel.php",
+		"/var/www/html/demolaravel/app/Console/Commands/addproduct.php",
+		"/var/www/html/demolaravel/config/app.php",
+		"/var/www/html/demolaravel/composer.json",
+		"/var/www/html/demolaravel/database/factories/UserFactory.php",
+		"/var/www/html/demolaravel/resources/views/add_Product.blade.php",
+		"/var/www/html/demolaravel/storage/logs/laravel-2019-07-30.log",
+		"/var/www/html/demolaravel/resources/views/errors/404.blade.php",
+		"/var/www/html/demolaravel/resources/views/demo.blade.php",
+		"/var/www/html/demolaravel/routes/demo.blade.php",
+		"/var/www/html/demolaravel/storage/logs/laravel-2019-07-29.log",
+		"/var/www/html/demolaravel/public/css/custom.css",
+		"/var/www/html/demolaravel/resources/views/list_product.blade.php",
+		"/var/www/html/demolaravel/resources/views/create_category.blade.php",
+		"/var/www/html/demolaravel/resources/views/list_category.blade.php",
+		"/var/www/html/demolaravel/database/migrations/2019_07_29_060000_create_category_details_table.php",
+		"/var/www/html/demolaravel/resources/views/edit_product.blade.php",
+		"/var/www/html/demolaravel/resources/views/edit_category.blade.php",
+		"/var/www/html/assignment_4/edit_category.php",
+		"/var/www/html/assignment_4/add_product.php",
+		"/var/www/html/demolaravel/resources/views/footer.blade.php",
+		"/var/www/html/assignment_4/footer.html",
+		"/var/www/html/assignment_4/list_product.php",
+		"/var/www/html/demolaravel/database/migrations/2019_07_29_044906_admin.php",
+		"/var/www/html/assignment_4/css/bootsrtap.css"
+	],
+	"find":
+	{
+		"height": 21.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"footer",
+			"SIGNOUT",
+			"header",
+			".skin-blue .main-header .navbar",
+			"edit_product1",
+			"span.select ",
+			"$name",
+			" product_id",
+			" product id"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Kernel.sublime-project",
+	"replace":
+	{
+		"height": 38.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 440.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
