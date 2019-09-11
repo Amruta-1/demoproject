@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\address;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
 
 class addressController extends Controller
 {
@@ -33,7 +34,7 @@ class addressController extends Controller
             $address  = DB::table('addresses')
         ->join('country', 'addresses.countryID', '=', 'country.id')
         ->join('states', 'addresses.stateID', '=', 'states.id')
-        ->select('addresses.id','addresses.customername','addresses.address1','addresses.address2','addresses.zipcode','addresses.mobno','country.country_name','states.name')
+        ->select('addresses.id','addresses.customername','addresses.address1','addresses.address2','addresses.zipcode','addresses.mobno','country.country_name','states.state_name')
         ->get();
         }
 
@@ -60,7 +61,8 @@ class addressController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $customerID= Auth::user()->id;
+        //dd($customerID);
         $address= new address;
         
         $address->customername=$request->input('name');
@@ -71,6 +73,7 @@ class addressController extends Controller
         $address->city=$request->input('city');
         $address->zipcode=$request->input('zipcode');
         $address->mobno=$request->input('mobno');
+        $address->customer_id=$customerID;
         $address->save();
 
 

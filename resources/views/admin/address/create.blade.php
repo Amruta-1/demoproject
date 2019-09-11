@@ -105,7 +105,7 @@
 
            $.each(data, function(index, stateObj){
               
-              $('#state').append('<option value="'+ stateObj.id +'">'+ stateObj.name+'</option>'); 
+              $('#state').append('<option value="'+ stateObj.id +'">'+ stateObj.state_name+'</option>'); 
             });
        });
    });

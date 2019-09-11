@@ -1,4 +1,7 @@
 @section('header')
+<?php
+$count =Cart::count();
+?>
 
 <header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
@@ -63,10 +66,11 @@
 							<ul class="nav navbar-nav">
 							@if (Auth::guest())
 								<li><a href="{{url('Eshopperlogin')}}"><i class="fa fa-lock"></i> Login</a></li>
-								<li><a href="{{ route('cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+
+								<li><a href="{{ route('cart')}}"><i class="fa fa-shopping-cart"></i><sup>{{$count}}</sup></a><p> </p></li>
 							@else
 								
-									
+										<li><a href="{{ route('cart')}}"><i class="fa fa-shopping-cart"></i><sup> {{$count}}</sup></a></li>
 										<ul class="nav navbar-nav collapse navbar-collapse">
 								
 										<li class="dropdown"><a href="#"><i class="fa fa-user"></i>Account	</a>
@@ -74,7 +78,7 @@
                                     								
 								<li><a href="{{url('admin/address')}}"><i class="fa fa-address-book"></i> Shipping Address </a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="{{ route('checkout')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><a href=""><i class="fa fa-crosshairs"></i> Checkout</a></li>
   								<li><a href="{{ url('Userlogout')}}" onclick="event.preventDefault();
 	                                                     document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> Logout
 
@@ -115,7 +119,7 @@
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="{{ route('productinfo')}}">Products</a></li>
 										
-										<li><a href="{{ route('checkout')}}">Checkout</a></li> 
+										<li><a href="">Checkout</a></li> 
 										<li><a href="{{ route('cart')}}">Cart</a></li> 
 										<li><a href="{{ route('login')}}">Login</a></li> 
                                     </ul>

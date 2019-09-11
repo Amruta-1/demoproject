@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Input;
 use App\category;
 use App\state;
+use App\address;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::get('/logout', function () {
 });
 
 Route::get('/register1','logincontroller@showRegister')->name('register1');
+Route::get('/product/{id}','Frontend\FrontendLoginController@product');
 //Route::get('/login','logincontroller@show')->name('login');
 
 
@@ -45,7 +47,7 @@ Route::get('/register1','logincontroller@showRegister')->name('register1');
 Route::get('/category-dropdown',function(){
 
        $cat_id = input::get('cat_id');
-
+       dd($cat_id);
        $subcategories = Category::where('parent_id','=',$cat_id)->get();
 
  		
@@ -53,12 +55,28 @@ Route::get('/category-dropdown',function(){
 
 
     });
+
 Route::get('/country-dropdown',function(){
 
        $cat_id = input::get('cat_id');
 
-       $state = state::where('countryID','=',$cat_id)->get();
+       //$state = state::where('countryID','=',$cat_id)->get();
+       $state = DB::table('states')->where('countryID', $cat_id)->get();
        return Response::json($state);
+    });
+
+Route::get('/address-dropdown',function(){
+      
+       $add_id = input::get('add_id');
+       //$address = address::where('id','=',$add_id)->get();
+       //echo '<pre>';print_r($address);die;
+       $addresses = DB::table('addresses')
+                        ->leftJoin('country', 'country.id', '=', 'addresses.countryID')
+                        ->leftJoin('states', 'states.id', '=', 'addresses.stateID')
+                        ->select('addresses.*','country.country_name','states.state_name')
+                        ->where('addresses.id',$add_id)
+                        ->get();
+       return Response::json($addresses);
     });
 
 
@@ -111,19 +129,28 @@ Route::get('/Eshopperlogin', function () {
     return view('Eshopper.login');
 })->name('Eshopperlogin');
 
-Route::get('/cart', function () {
-    return view('Eshopper.cart');
-})->name('cart');
+// Route::get('/check', function () {
+//     return view('Eshopper.checkOut');
+// })->name('checkOut');
 
-Route::get('/checkout', function () {
-    return view('Eshopper.checkout');
-})->name('checkout');
+Route::get('/cart','Frontend\FrontendLoginController@total')->name('cart');
+
+
 
 Route::get('/product-details', function () {
     return view('Eshopper.product-details');
 })->name('product-details');
 
 Route::get('/productinfo','Frontend\FrontendLoginController@categories')->name('productinfo');
+Route::get('/addcart/{id}','Frontend\FrontendLoginController@cartStore');
+Route::get('/removeproduct/{rowid}','Frontend\FrontendLoginController@removeproduct');
+Route::get('/incrementQuantity/{rowid}/{rowqty}','Frontend\FrontendLoginController@incrementQuantity');
+Route::get('/decrementQuantity/{rowid}/{rowqty}','Frontend\FrontendLoginController@decrementQuantity');
+Route::get('/decrementQuantity/{rowid}/{rowqty}','Frontend\FrontendLoginController@decrementQuantity');
+Route::get('/couponDiscount/','Frontend\FrontendLoginController@couponDiscount')->name('coupon');
+//Route::get('/checkout/','Frontend\FrontendLoginController@checkout')->name('checkout');
+
+
 
 Route::get('/404', function () {
     return view('Eshopper.404');
@@ -171,9 +198,20 @@ Route::get('login/google/callback', 'Auth\LoginController@handleGoogleCallback')
 
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::get('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::get('password/reset/{token}','Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::get('password/reset', 'Auth\ResetPasswordController@reset');
 
 
 Route::resource('admin/address', 'Admin\\addressController');
 Route::resource('admin/address', 'Admin\\addressController');
+
+Route::get('checkOut','Frontend\\FrontendLoginController@check')->name('checkOut');
+//Route::get('/check','Frontend\\CheckoutController@checkout')->name('CODcheck');
+Route::post('check', ['as' => 'checkout', 'uses' => 'Frontend\\CheckoutController@checkout']);
+Route::get('wishlist/{id}','Frontend\\CheckoutController@wishlist')->name('wishlist');
+
+
+// --------paypal routes-------
+Route::get('paywithpaypal', array('as' => 'addmoney.paywithpaypal','uses' => 'Frontend\\PayPalController@payWithPaypal',));
+Route::post('paypal', array('as' => 'addmoney.paypal','uses' => 'Frontend\\PayPalController@postPaymentWithpaypal'));
+Route::get('paypal', array('as' => 'payment.status','uses' => 'Frontend\\PayPalController@getPaymentStatus',));

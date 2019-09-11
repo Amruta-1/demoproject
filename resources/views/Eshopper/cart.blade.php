@@ -2,7 +2,11 @@
 
 @section('title', 'Dashboard')
 @section('content')
+<?php
+$tot=Session::get('total');
+$t1=0;
 
+?>
 	<section id="cart_items">
 		<div class="container">
 			<div class="breadcrumbs">
@@ -14,6 +18,7 @@
 			<div class="table-responsive cart_info">
 				<table class="table table-condensed">
 					<thead>
+
 						<tr class="cart_menu">
 							<td class="image">Item</td>
 							<td class="description"></td>
@@ -24,82 +29,39 @@
 						</tr>
 					</thead>
 					<tbody>
+					
+					@foreach(Cart::content() as $row)
+					
 						<tr>
 							<td class="cart_product">
-								<a href=""><img src="{{ asset('dist/img/cart/one.png')}}" alt=""></a>
+								<a href=""><img src="{{asset('product/'.$row->options->img)}}" alt="" height="110px" width="100px"/></a>
 							</td>
 							<td class="cart_description">
 								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
+								<p>{{ $row->name }}</p>
 							</td>
 							<td class="cart_price">
-								<p>$59</p>
+								<p>{{$row->price}}</p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+									<a class="cart_quantity_up" href="{{url('incrementQuantity/'.$row->rowId.'/'.$row->qty)}}" > + </a>
+									<input class="cart_quantity_input" type="text" name="quantity" id="quantity" value="{{$row->qty}}" autocomplete="off" size="2">
+									<a class="cart_quantity_down" href="{{url('decrementQuantity/'.$row->rowId.'/'.$row->qty)}}"> - </a>
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
+								<p class="cart_total_price">{{$row->price*$row->qty}}</p>
+								<span hidden>{{$t1=$t1+$row->price*$row->qty}}</span>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+								<a class="cart_quantity_delete" href="{{asset('removeproduct/'.$row->rowId)}}"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
 
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="{{ asset('dist/img/cart/two.png')}}" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="{{ asset('dist/img/cart/three.png')}}" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
+						
+						@endforeach
+						
 					</tbody>
 				</table>
 			</div>
@@ -108,78 +70,49 @@
 
 	<section id="do_action">
 		<div class="container">
-			<div class="heading">
-				<h3>What would you like to do next?</h3>
-				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
-			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<div class="chose_area">
-						<ul class="user_option">
-							<li>
-								<input type="checkbox">
-								<label>Use Coupon Code</label>
-							</li>
-							<li>
-								<input type="checkbox">
-								<label>Use Gift Voucher</label>
-							</li>
-							<li>
-								<input type="checkbox">
-								<label>Estimate Shipping & Taxes</label>
-							</li>
-						</ul>
-						<ul class="user_info">
-							<li class="single_field">
-								<label>Country:</label>
-								<select>
-									<option>United States</option>
-									<option>Bangladesh</option>
-									<option>UK</option>
-									<option>India</option>
-									<option>Pakistan</option>
-									<option>Ucrane</option>
-									<option>Canada</option>
-									<option>Dubai</option>
-								</select>
-								
-							</li>
-							<li class="single_field">
-								<label>Region / State:</label>
-								<select>
-									<option>Select</option>
-									<option>Dhaka</option>
-									<option>London</option>
-									<option>Dillih</option>
-									<option>Lahore</option>
-									<option>Alaska</option>
-									<option>Canada</option>
-									<option>Dubai</option>
-								</select>
-							
-							</li>
-							<li class="single_field zip-field">
-								<label>Zip Code:</label>
-								<input type="text">
-							</li>
-						</ul>
-						<a class="btn btn-default update" href="">Get Quotes</a>
-						<a class="btn btn-default check_out" href="">Continue</a>
-					</div>
+				<form id="form" action="{{ route('coupon') }}" data-parsley-validate>
+				{{ csrf_field() }}
+				<h5 >Apply coupon</h5>
+				<input type="text" placeholder="Enter Coupon code" name="coupon" style="background-color:#E6E4DF;border:none;width:300px;height:30px;padding-left:10px;" data-parsley-required="true"/><br>
+				@if ($message = Session::get('error'))
+				{{$message}}
+				@endif
+				<button type="submit" class="btn btn-default update" >Apply coupon</button>
+				</form>
 				</div>
 				<div class="col-sm-6">
+					<form id="form" action="{{ route('checkOut') }}" data-parsley-validate>
 					<div class="total_area">
 						<ul>
-							<li>Cart Sub Total <span>$59</span></li>
-							<li>Eco Tax <span>$2</span></li>
-							<li>Shipping Cost <span>Free</span></li>
-							<li>Total <span>$61</span></li>
+
+							<li>Cart Sub Total<span>{{$t1}} Rs</span></li>
+							{{Session::put('subtotal',$t1)}}
+							@if($t1>500)
+							<li>Shipping Cost <span>0</span></li>
+							@else
+							<li>Shipping Cost <span>50 RS</span></li>
+							
+							@endif
+							@if($t1>500)
+							<li>Total <span>{{$t1}} RS</span></li>
+							@else
+							<li>Total <span>{{$t1+50}} RS</span></li>
+							
+							@endif
+							
 						</ul>
-							<a class="btn btn-default update" href="">Update</a>
-							<a class="btn btn-default check_out" href="">Check Out</a>
+
+							<a href="{{url('checkOut')}}" class="btn btn-default check_out">Check Out</a>
+							
 					</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</section><!--/#do_action-->
+	<script>
+ 	$('#form').parsley();
+	</script>
 	@endsection

@@ -1,8 +1,8 @@
+
 <?php
-
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
+
 
 class state extends Model
 {
@@ -11,5 +11,5 @@ class state extends Model
     protected $primaryKey = 'id';
 
 
-    protected $fillable = ['name','countryID'];
+    protected $fillable = ['state_name','countryID'];
 }

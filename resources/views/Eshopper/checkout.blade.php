@@ -2,7 +2,6 @@
 
 @section('title', 'Dashboard')
 @section('content')
-
 	<section id="cart_items">
 		<div class="container">
 			<div class="breadcrumbs">
@@ -13,87 +12,60 @@
 			</div><!--/breadcrums-->
 
 			<div class="step-one">
-				<h2 class="heading">Step1</h2>
+				<h2 class="heading">Select address</h2>
 			</div>
 			<div class="checkout-options">
-				<h3>New User</h3>
-				<p>Checkout options</p>
-				<ul class="nav">
-					<li>
-						<label><input type="checkbox"> Register Account</label>
-					</li>
-					<li>
-						<label><input type="checkbox"> Guest Checkout</label>
-					</li>
-					<li>
-						<a href=""><i class="fa fa-times"></i>Cancel</a>
-					</li>
-				</ul>
-			</div><!--/checkout-options-->
+				<select style="width:50%;">
+				<option>Select billing address</option>
+				@foreach($addresses as $address)		
+				<option>
+						{{$address->customername}}<span>,</span>
+						{{$address->address1}}<span>,</span>
+						{{$address->address2}}<span>,</span>
+						{{$address->city}}<span>,</span>
+						{{$address->zipcode}}<span>,</span>
+						{{$address->mobno}}
+				</option>
+				@endforeach
+				</select>
+				
+				
+				<br>
+				<input type="checkbox" name="" value="{{$address->id}}" id="{{$address->id}}">Select as shipping address
+				</div>
+				
+			<!--/checkout-options-->
 
 			<div class="register-req">
-				<p>Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest</p>
+				
 			</div><!--/register-req-->
 
 			<div class="shopper-informations">
 				<div class="row">
 					<div class="col-sm-3">
 						<div class="shopper-info">
-							<p>Shopper Information</p>
-							<form>
-								<input type="text" placeholder="Display Name">
-								<input type="text" placeholder="User Name">
-								<input type="password" placeholder="Password">
-								<input type="password" placeholder="Confirm password">
-							</form>
-							<a class="btn btn-primary" href="">Get Quotes</a>
-							<a class="btn btn-primary" href="">Continue</a>
+							<button class="btn btn-primary btn-sm" type="button" id="formButton">Add shipping address</button></a>
 						</div>
 					</div>
 					<div class="col-sm-5 clearfix">
+
 						<div class="bill-to">
-							<p>Bill To</p>
+							<p>Add new Billing Address</p>
 							<div class="form-one">
-								<form>
-									<input type="text" placeholder="Company Name">
-									<input type="text" placeholder="Email*">
-									<input type="text" placeholder="Title">
-									<input type="text" placeholder="First Name *">
-									<input type="text" placeholder="Middle Name">
-									<input type="text" placeholder="Last Name *">
-									<input type="text" placeholder="Address 1 *">
-									<input type="text" placeholder="Address 2">
+								<form id="form1">
+									
+									<input type="text" placeholder="Name" name="name">
+									<input type="text" placeholder="Address 1 *" id="address1">
+									<input type="text" placeholder="Address 2" id="address2">
+									<input type="text" placeholder="City" id="city">
+									<input type="text" placeholder="Zip Code" id="zipcode">
+									<input type="text" placeholder="Mobile no" id="mobno">
+
 								</form>
 							</div>
 							<div class="form-two">
 								<form>
-									<input type="text" placeholder="Zip / Postal Code *">
-									<select>
-										<option>-- Country --</option>
-										<option>United States</option>
-										<option>Bangladesh</option>
-										<option>UK</option>
-										<option>India</option>
-										<option>Pakistan</option>
-										<option>Ucrane</option>
-										<option>Canada</option>
-										<option>Dubai</option>
-									</select>
-									<select>
-										<option>-- State / Province / Region --</option>
-										<option>United States</option>
-										<option>Bangladesh</option>
-										<option>UK</option>
-										<option>India</option>
-										<option>Pakistan</option>
-										<option>Ucrane</option>
-										<option>Canada</option>
-										<option>Dubai</option>
-									</select>
-									<input type="password" placeholder="Confirm password">
-									<input type="text" placeholder="Phone *">
-									<input type="text" placeholder="Mobile Phone">
-									<input type="text" placeholder="Fax">
+									
 								</form>
 							</div>
 						</div>
@@ -227,11 +199,9 @@
 				</table>
 			</div>
 			<div class="payment-options">
+					
 					<span>
-						<label><input type="checkbox"> Direct Bank Transfer</label>
-					</span>
-					<span>
-						<label><input type="checkbox"> Check Payment</label>
+						<label><input type="checkbox"> Cash on delivery</label>
 					</span>
 					<span>
 						<label><input type="checkbox"> Paypal</label>
@@ -239,5 +209,11 @@
 				</div>
 		</div>
 	</section> <!--/#cart_items-->
-
+	<script>
+	$(document).ready(function() {
+  		$("#formButton").click(function() {
+    	$("#form1").toggle();
+  	});
+	});
+</script>
 @endsection

@@ -23,8 +23,9 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
     <script src="{{ asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
-     
-
+    <link rel="stylesheet" type="text/css" href="https://parsleyjs.org/src/parsley.css">
+    <script src="https://parsleyjs.org/dist/parsley.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     </head>
     <body>
     
@@ -36,7 +37,7 @@
         <div class="container">
             @yield('content')
         </div>
-        
+     
         @section('footer')
              @include('Eshopper.footer')
         @show
@@ -49,6 +50,6 @@
         <script src="{{ asset('dist/js/price-range.js')}}"></script>
         <script src="{{ asset('dist/js/jquery.prettyPhoto.js')}}"></script>
         <script src="{{ asset('dist/js/main.js')}}"></script> 
-    </body>
+    
  
 </html>

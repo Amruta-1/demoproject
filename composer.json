@@ -10,10 +10,12 @@
     "require": {
         "php": "^7.1.3",
         "fideloper/proxy": "^4.0",
+        "gloudemans/shoppingcart": "^2.6",
         "laravel/framework": "5.7.*",
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.7.0",
+        "paypal/rest-api-sdk-php": "^1.14",
         "spatie/laravel-permission": "^2.37"
     },
     "require-dev": {
@@ -63,4 +65,5 @@
             "@php artisan key:generate --ansi"
         ]
     }
+    
 }

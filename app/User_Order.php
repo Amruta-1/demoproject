@@ -1,17 +1,20 @@
+
 <?php
 
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class address extends Model
+class User_Order extends Model
 {
-    /**
+    //
+     //
+     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'addresses';
+    protected $table = 'user_order';
 
     /**
     * The database primary key value.
@@ -25,7 +28,11 @@ class address extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'address1', 'address2', 'city', 'zipcode', 'mobno','customer_id'];
-
-    
+    protected $fillable = ['customer_id','order_id'];
 }
+
+
+
+
+
+

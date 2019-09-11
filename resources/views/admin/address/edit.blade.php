@@ -55,12 +55,14 @@
         
     {!! $errors->first('state', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group {{ $errors->has('state') ? 'has-error' : ''}}">
+<div class="form-group {{ $errors->has('') ? 'has-error' : ''}}">
     <label for="state" class="control-label">{{ 'State' }}</label>
     <select id="state" class="form-control" name="state">
         @foreach($states as $state)
          @if($address->stateID == $state->id)
-        <option value="{{ isset($state->id) ? $state->id : ''}}" >{{ $state->name}}</option>
+        <option value="{{ $state->id }}" selected>{{ $state->state_name}}</option>
+        @else
+        <option value="{{ $state->id }}" >{{ $state->state_name}}</option>
         @endif
         @endforeach
        
@@ -129,7 +131,7 @@
 
            $.each(data, function(index, stateObj){
 
-               $('#state').append('<option value="'+ stateObj.id +'">'+ stateObj.name+'</option>');            
+               $('#state').append('<option value="'+ stateObj.id +'">'+ stateObj.state_name+'</option>');            
 
            });
        });

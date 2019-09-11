@@ -39,7 +39,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->customername }}</td><td>{{ $item->address1 }}</td><td>{{ $item->address2 }}</td>
                                         <td>{{ $item->country_name }}</td>
-                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->state_name }}</td>
                                         <td>{{ $item->zipcode }}</td>
                                         <td>{{ $item->mobno }}</td>
 

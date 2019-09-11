@@ -4,14 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class address extends Model
+class order_details extends Model
 {
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'addresses';
+    //
+     protected $table = 'order_details';
 
     /**
     * The database primary key value.
@@ -25,7 +21,5 @@ class address extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'address1', 'address2', 'city', 'zipcode', 'mobno','customer_id'];
-
-    
+    protected $fillable = ['cart','shipping_address_id','billing_address_id','cart_total','shipping_charge','grand_total','transaction_id','customer_id'];
 }
