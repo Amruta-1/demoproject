@@ -206,7 +206,7 @@ Route::resource('admin/address', 'Admin\\addressController');
 Route::resource('admin/address', 'Admin\\addressController');
 
 Route::get('checkOut','Frontend\\FrontendLoginController@check')->name('checkOut');
-//Route::get('/check','Frontend\\CheckoutController@checkout')->name('CODcheck');
+
 Route::post('check', ['as' => 'checkout', 'uses' => 'Frontend\\CheckoutController@checkout']);
 Route::get('wishlist/{id}','Frontend\\CheckoutController@wishlist')->name('wishlist');
 
