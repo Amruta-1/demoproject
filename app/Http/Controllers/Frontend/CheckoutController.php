@@ -9,12 +9,13 @@ use App\order_details;
 use Auth;
 use Cart;
 use Redirect;
+use App\wishlist;
 
 
 class CheckoutController extends Controller
 {
    
-     public function checkout(Request $request )
+     public function checkout(Request $request)
      {   
     	$add_id= $request->input('billingaddress');
     	//dd($add_id);
@@ -105,6 +106,15 @@ class CheckoutController extends Controller
 
        }
 
+
+    }
+    public function wishlist(Request $request){
+    	$prod_id=$request->id;
+    	$wishlist= new wishlist;
+    	$wishlist->customer_id= Auth::user()->id;
+    	$wishlist->product_id= $prod_id;
+    	$wishlist->save();
+    
 
     }
 }
